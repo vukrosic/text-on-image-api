@@ -20,7 +20,8 @@ const Container = styled(motion.div)`
 interface Service {
   ID: number;
   Title: string;
-  Description: any;
+  Description: string;
+  ImageUrl: string
 }
 
 const LandingPage: FC = () => {
@@ -104,11 +105,11 @@ const LandingPage: FC = () => {
       {/* Hero Section */}
       <motion.section className="py-20 px-5 h-screen flex items-center" style={{ backgroundColor }}>
         <motion.div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-          <motion.div className="md:w-1/2 mb-10 md:mb-0">
+          <motion.div className="md:w-1/2 mb-10 md:mb-0 space-y-6  max-width: 1400px;">
             <motion.h1 className="text-5xl font-extrabold mb-6" style={{ color: textColor }}>
               Revolutionize Your Business with AI Automation
             </motion.h1>
-            <motion.p className="text-xl mb-8" style={{ color: textColor }}>
+            <motion.p className="text-xl max-w-[550px]" style={{ color: textColor }}>
               Enhance productivity, streamline operations, and deliver exceptional customer experiences with our cutting-edge AI-powered solutions.
             </motion.p>
             <motion.div className="flex space-x-4">
@@ -140,7 +141,7 @@ const LandingPage: FC = () => {
                 <CardHeader className="p-6">
                   <motion.div className="w-16 h-16 mx-auto mb-4">
                     <img
-                      src="https://cdn-icons-png.flaticon.com/512/15197/15197122.png"
+                      src={service.ImageUrl}
                       alt={service.Title}
                       className="w-full h-full object-contain"
                     />
@@ -153,6 +154,7 @@ const LandingPage: FC = () => {
                   <motion.p className="text-sm font-medium leading-relaxed whitespace-pre-line" style={{ color: textColor }}>
                     {service.Description}
                   </motion.p>
+                  {/* <Button variant="outline" className='bg-black text-white hover:bg-neutral-900 hover:text-white' onClick={() => scrollIntoView('contact')}>Contact Us</Button> */}
                 </CardContent>
               </Card>
             ))}
